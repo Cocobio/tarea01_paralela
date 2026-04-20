@@ -1,0 +1,4 @@
+# No guardar ejecutables
+*.out
+
+Session.vim
