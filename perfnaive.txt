@@ -1,0 +1,19 @@
+
+ Performance counter stats for './test':
+
+                 0      context-switches:u               #      0.0 cs/sec  cs_per_second     
+                 0      cpu-migrations:u                 #      0.0 migrations/sec  migrations_per_second
+           131,202      page-faults:u                    #   3248.8 faults/sec  page_faults_per_second
+         40,384.34 msec task-clock:u                     #      1.0 CPUs  CPUs_utilized       
+        24,153,157      branch-misses:u                  #      0.0 %  branch_miss_rate         (49.99%)
+    79,284,510,782      branches:u                       #   1963.2 M/sec  branch_frequency     (49.99%)
+   163,132,547,517      cpu-cycles:u                     #      4.0 GHz  cycles_frequency       (66.67%)
+   553,126,366,489      instructions:u                   #      3.4 instructions  insn_per_cycle  (50.01%)
+       489,502,238      stalled-cycles-frontend:u        #     0.00 frontend_cycles_idle        (50.01%)
+
+      40.404832617 seconds time elapsed
+
+      40.150015000 seconds user
+       0.233877000 seconds sys
+
+
