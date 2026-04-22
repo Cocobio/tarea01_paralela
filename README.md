@@ -28,7 +28,7 @@ Matrix multiplication using naive/tiling/strassen approach. Followed by OpenMP p
     - [ ] Escribir informe
 
 * Nacho:
-    - [ ] Implementar multiplicacion bloque (secuencial)
+    - [x] Implementar multiplicacion bloque (secuencial)
     - [ ] Implementar multiplicacion bloque (OpenMP) (w/Gian)
     - [ ] Realizar experimentos
 
