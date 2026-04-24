@@ -17,5 +17,9 @@ int main(int argn, char** argv) {
     double time = medir([&]() {tile_multiplication(A, B, C, N, tile);});
     std::cout << "Measure time: " << time << std::endl;
 
+    free(A);
+    free(B);
+    free(C);
+
     return 0;
 }
