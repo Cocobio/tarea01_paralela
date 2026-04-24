@@ -16,7 +16,7 @@ std::vector<float> conventional_mult(std::vector<float>& A, std::vector<float>& 
     return C;
 }
 
-std::vector<float> strassen_mult(std::vector<float>& A, std::vector<float>& B, int N, int n0=4) {
+std::vector<float> strassen_mult(std::vector<float>& A, std::vector<float>& B, int N, int n0=1024) {
     if(N<=n0){
         return conventional_mult(A,B,N);
     }
@@ -46,6 +46,10 @@ std::vector<float> strassen_mult(std::vector<float>& A, std::vector<float>& B, i
             
         }
     }
+
+    
+ 
+
 
    std::vector<float> M11((N*N)/4);
    std::vector<float> M12((N*N)/4);
@@ -80,6 +84,7 @@ std::vector<float> strassen_mult(std::vector<float>& A, std::vector<float>& B, i
         }
     }
 
+    
     std::vector<float> M1((N*N)/4),
     M2((N*N)/4),M3((N*N)/4),
     M4((N*N)/4),M5((N*N)/4),
@@ -106,13 +111,16 @@ std::vector<float> strassen_mult(std::vector<float>& A, std::vector<float>& B, i
         }
     }
 
+
+
+
     std::vector<float> C(N*N);
 
     for(int i=0; i<N/2; i++){
         for(int j=0; j<N/2; j++){
             C[i*N+j]=C11[i*(N/2)+j];
             C[((N/2)+i)*N+j]=C21[i*(N/2)+j];
-            C[i+(N/2)+j]=C12[i*(N/2)+j];
+            C[i*N+(N/2)+j]=C12[i*(N/2)+j];
             C[((N/2)+i)*N+(N/2)+j]=C22[i*(N/2)+j];       
         }
     }

@@ -7,14 +7,14 @@
 int main(){
     std::ofstream timefile("strassenvsconvencionaltimes.txt");
 
-    for (int N=4; N<1024; N*=2)
+    for (int N=4; N<8192; N*=2)
     {
         timefile<<"N= "<<N<<std::endl;
         std::vector<float> A(N*N),B(N*N),Cstrassen(N*N),Cnormal(N*N);
         for(int i=0; i<N;i++){
             for(int j=0; j<N;j++){
-                A[i*N+j]=rand();
-                B[i*N+j]=rand();
+                A[i*N+j]=rand()%10;
+                B[i*N+j]=rand()%10;
             }
         }
         auto start = std::chrono::high_resolution_clock::now();
@@ -32,6 +32,20 @@ int main(){
         stop = std::chrono::high_resolution_clock::now();
         duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
         timefile<<"Conventional time "<<duration.count()/100<<" us"<<std::endl;
+        if(Cstrassen!=Cnormal){
+            std::cout<<"Error en N= "<<N<<std::endl;
+
+            for(int i=0; i<N;i++){
+                for(int j=0; j<N;j++){
+                    if(Cstrassen[i*N+j]!=Cnormal[i*N+j]){
+                        std::cout<<Cstrassen[i*N+j]<<" "<<Cnormal[i*N+j]<<" ";
+                        std::cout<<i<<" "<<j<<std::endl;
+                    }
+                }
+                std::cout<<std::endl;
+            }
+
+        }
     }
 
 
