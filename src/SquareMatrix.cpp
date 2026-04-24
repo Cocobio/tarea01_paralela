@@ -12,7 +12,7 @@ SquareMatrix<T>::SquareMatrix(size_t dimension) {
     this->offset[1] = 0u;
 }
 
-template<class T>
+/* template<class T>
 SquareMatrix<T>::SquareMatrix(size_t dimension, size_t id) {
     this->dim = dimension;
     this->data = new T[this->dim * this->dim];
@@ -20,7 +20,7 @@ SquareMatrix<T>::SquareMatrix(size_t dimension, size_t id) {
     this->offset[0] = 0u;
     this->offset[1] = 0u;
     this->id=id;
-}
+} */
 
 template<class T>
 SquareMatrix<T>::SquareMatrix(size_t dimension, T fill) {
@@ -42,8 +42,8 @@ SquareMatrix<T> SquareMatrix<T>::getView(size_t row_offset,
     SquareMatrix<T> res;
     res.data = this->data;
     res.dim = dim;
-    res.offset[0] = row_offset;
-    res.offset[1] = column_offset;
+    res.offset[0] = this->offset[0]+row_offset;
+    res.offset[1] = this->offset[1]+column_offset;
     res.row_size = this->row_size;
 
     return res;

@@ -15,8 +15,7 @@ public:
 public:
     SquareMatrix() {};
     SquareMatrix(size_t dimension);
-    SquareMatrix(size_t dimension,size_t id);
-    SquareMatrix(size_t dimension, T fill);
+    // SquareMatrix(size_t dimension,size_t id);
     SquareMatrix(size_t dimension, T fill);
 
     ~SquareMatrix();

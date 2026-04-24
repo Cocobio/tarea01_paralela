@@ -1,45 +1,45 @@
 #include <iostream>
 #include <vector>
 #include "SquareMatrix.cpp"
-vlsi::SquareMatrix<float> conventional_mult(vlsi::SquareMatrix<float>& A,vlsi::SquareMatrix<float>& B, int N) {
 
-    vlsi::SquareMatrix<float> C(N);
-    
+template<class T>
+void conventional_mult(vlsi::SquareMatrix<T>& A,
+                       vlsi::SquareMatrix<T>& B,
+                       vlsi::SquareMatrix<T>& C,
+                       int N) {
     for(int i=0; i<N; i++){ 
         for(int j=0; j<N; j++){
-            float sum = 0.0f;
+            T sum = T();
             for(int k=0; k<N; k++){
                 sum += A[i,k] * B[k,j];
-                //std::cout<<A[i,k]<<"*"<<B[k,j]<<" ";
             }
-            //std::cout<<std::endl;
-            //std::cout<<sum<<std::endl;
             C[i,j] = sum;
-            //std::cout<<C[i,j]<<std::endl;
         }
     }
-
-    return C;
 }
 
-vlsi::SquareMatrix<float> strassen_mult(vlsi::SquareMatrix<float>& A, vlsi::SquareMatrix<float>& B, int N, int n0=4) {
+template<class T>
+void strassen_mult(vlsi::SquareMatrix<T>& A,
+                   vlsi::SquareMatrix<T>& B,
+                   vlsi::SquareMatrix<T>& C,
+                   int N, int n0=1) {
     if(N<=n0){
-        return conventional_mult(A,B,N);
+        conventional_mult(A,B,C,N);
+        return;
     }
-
-
     
-    vlsi::SquareMatrix<float> A11=A.getView(0,0,N/2);
-    vlsi::SquareMatrix<float> A12=A.getView(N/2,0,N/2);
-    vlsi::SquareMatrix<float> A21=A.getView(N/2,0,N/2);
-    vlsi::SquareMatrix<float> A22=A.getView(N/2,N/2,N/2);
+    vlsi::SquareMatrix<T> A11=A.getView(0,0,N/2);
+    vlsi::SquareMatrix<T> A21=A.getView(N/2,0,N/2);
+    vlsi::SquareMatrix<T> A12=A.getView(0,N/2,N/2);
+    vlsi::SquareMatrix<T> A22=A.getView(N/2,N/2,N/2);
 
-    vlsi::SquareMatrix<float> B11=B.getView(0,0,N/2);
-    vlsi::SquareMatrix<float> B12=B.getView(N/2,0,N/2);
-    vlsi::SquareMatrix<float> B21=B.getView(N/2,0,N/2);
-    vlsi::SquareMatrix<float> B22=B.getView(N/2,N/2,N/2);
+    vlsi::SquareMatrix<T> B11=B.getView(0,0,N/2);
+    vlsi::SquareMatrix<T> B21=B.getView(N/2,0,N/2);
+    vlsi::SquareMatrix<T> B12=B.getView(0,N/2,N/2);
+    vlsi::SquareMatrix<T> B22=B.getView(N/2,N/2,N/2);
 
-    vlsi::SquareMatrix<float> M11(N,0),M12(N,1),M21(N,2), M32(N,3), M42(N,4), M51(N,5), M61(N,6), M62(N,7), M71(N,8), M72(N,9);
+    vlsi::SquareMatrix<T> M11(N/2),M12(N/2),M21(N/2), M32(N/2), M42(N/2),
+                              M51(N/2), M61(N/2), M62(N/2), M71(N/2), M72(N/2);
 
     for(int i=0; i<N/2; i++){
         for(int j=0; j<N/2; j++){
@@ -57,33 +57,26 @@ vlsi::SquareMatrix<float> strassen_mult(vlsi::SquareMatrix<float>& A, vlsi::Squa
         }
     }
 
+    vlsi::SquareMatrix<T> M1(N/2);
+    vlsi::SquareMatrix<T> M2(N/2);
+    vlsi::SquareMatrix<T> M3(N/2);
+    vlsi::SquareMatrix<T> M4(N/2);
+    vlsi::SquareMatrix<T> M5(N/2);
+    vlsi::SquareMatrix<T> M6(N/2);
+    vlsi::SquareMatrix<T> M7(N/2);
 
+    strassen_mult(M11,M12,M1,N/2);
+    strassen_mult(M21,B11,M2,N/2);
+    strassen_mult(A11,M32,M3,N/2);
+    strassen_mult(A22,M42,M4,N/2);
+    strassen_mult(M51,B22,M5,N/2);
+    strassen_mult(M61,M62,M6,N/2);
+    strassen_mult(M71,M72,M7,N/2);
 
-
-
-
-   
-
-   
-
-
-
-    vlsi::SquareMatrix<float> M1=strassen_mult(M11,M12,N/2);
-    vlsi::SquareMatrix<float> M2=strassen_mult(M21,B11,N/2);
-    vlsi::SquareMatrix<float> M3=strassen_mult(A11,M32,N/2);
-    vlsi::SquareMatrix<float> M4=strassen_mult(A22,M42,N/2);
-    vlsi::SquareMatrix<float> M5=strassen_mult(M51,B22,N/2);
-    vlsi::SquareMatrix<float> M6=strassen_mult(M61,M62,N/2);
-    vlsi::SquareMatrix<float> M7=strassen_mult(M71,M72,N/2);
-
-    vlsi::SquareMatrix<float> C(N,10);
-
-    vlsi::SquareMatrix<float> C11=C.getView(0,0,N/2);
-    vlsi::SquareMatrix<float> C12=C.getView(N/2,0,N/2);
-    vlsi::SquareMatrix<float> C21=C.getView(N/2,0,N/2);
-    vlsi::SquareMatrix<float> C22=C.getView(N/2,N/2,N/2);
-
-    
+    vlsi::SquareMatrix<T> C11=C.getView(0,0,N/2);
+    vlsi::SquareMatrix<T> C21=C.getView(N/2,0,N/2);
+    vlsi::SquareMatrix<T> C12=C.getView(0,N/2,N/2);
+    vlsi::SquareMatrix<T> C22=C.getView(N/2,N/2,N/2);
 
     for(int i=0; i<N/2; i++){
         for(int j=0; j<N/2; j++){
@@ -93,19 +86,6 @@ vlsi::SquareMatrix<float> strassen_mult(vlsi::SquareMatrix<float>& A, vlsi::Squa
             C22[i,j]=M1[i,j]-M2[i,j]+M3[i,j]+M6[i,j];           
         }
     }
-
-    
-
-    // for(int i=0; i<N/2; i++){
-    //     for(int j=0; j<N/2; j++){
-    //         C[i][j]=C11[i][j];
-    //         C[(N/2)+i][j]=C21[i][j];
-    //         C[i][(N/2)+j]=C12[i][j];
-    //         C[(N/2)+i][(N/2)+j]=C22[i][j];       
-    //     }
-    // }
-
-    return C;
 }
 
 
@@ -115,7 +95,7 @@ vlsi::SquareMatrix<float> strassen_mult(vlsi::SquareMatrix<float>& A, vlsi::Squa
 int main(){
 
     for(int N=4; N<2048; N=N*2){
-        vlsi::SquareMatrix<float> A(N),B(N);
+        vlsi::SquareMatrix<int> A(N),B(N);
         for(int i=0; i<N;i++){
             for(int j=0; j<N;j++){
                 A[i,j]=i;
@@ -137,38 +117,17 @@ int main(){
         //     std::cout<<std::endl;
         // }
 
-        vlsi::SquareMatrix<float> Cstrassen=strassen_mult(A,B,N,8);
-        vlsi::SquareMatrix<float> Cnormal=conventional_mult(A,B,N);
-        //Cstrassen=strassen_mult(A,B,N,16);
-        // for(int i=0; i<N;i++){
-        //     for(int j=0; j<N;j++){
-        //         std::cout<<Cstrassen[i,j]<<" ";
-        //     }
-        //     std::cout<<std::endl;
-        // }
+        vlsi::SquareMatrix<int> Cstrassen(N);
+        strassen_mult(A,B,Cstrassen,N,8);
+        vlsi::SquareMatrix<int> Cnormal(N);
+        conventional_mult(A,B,Cnormal,N);
+
+        std::cout<<"N: "<<N;
         if(Cstrassen==Cnormal){
-            std::cout<<"N: "<<N<<" OK"<<std::endl;
+            std::cout << " OK";
         }
+        std::cout <<std::endl;
     }
-    
-    //Cnormal=conventional_mult(A,B,N);
-    
-
-    // for(int i=0; i<N;i++){
-    //     for(int j=0; j<N;j++){
-    //         std::cout<<Cnormal[i][j]<<" ";
-    //     }
-    //     std::cout<<std::endl;
-    // }
-
-    // for(int i=0; i<N;i++){
-    //     for(int j=0; j<N;j++){
-    //         std::cout<<Cstrassen[i][j]<<" ";
-    //     }
-    //     std::cout<<std::endl;
-    // }
-
-    
 
     return 0;
 }
