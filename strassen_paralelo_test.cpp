@@ -1,6 +1,6 @@
 #include <cstdlib>
 #include <iostream>
-#include "strassen_paralelo.cpp"
+#include "src/strassen_paralelo.cpp"
 
 int main(int argn, char** argv) {
     int N = atoi(argv[1]);

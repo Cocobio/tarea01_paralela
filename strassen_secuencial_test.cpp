@@ -1,6 +1,6 @@
 #include <cstdlib>
 #include <iostream>
-#include "strassen_secuencial.cpp"
+#include "src/strassen_secuencial.cpp"
 
 int main(int argn, char** argv) {
     int N = atoi(argv[1]);
