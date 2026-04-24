@@ -27,3 +27,11 @@ double medir(std::function<Matrix()> fn) {
     return std::chrono::duration<double>(t1 - t0).count(); 
 }
 
+template <class F>
+double medir(F fn) {
+    auto t0 = std::chrono::high_resolution_clock::now();
+    fn();
+    auto t1 = std::chrono::high_resolution_clock::now();
+
+    return std::chrono::duration<double>(t1 - t0).count(); 
+}

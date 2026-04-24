@@ -10,5 +10,7 @@ Matrix zeros(int n);
 Matrix random_matrix(int n);
 double medir(std::function<Matrix()> fn);
 
+template <class F>
+double medir(F fn);
 
 #endif
