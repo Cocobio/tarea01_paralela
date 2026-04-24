@@ -16,7 +16,7 @@ std::vector<float> conventional_mult(std::vector<float>& A, std::vector<float>& 
     return C;
 }
 
-std::vector<float> strassen_mult(std::vector<float>& A, std::vector<float>& B, int N, int n0=1024) {
+std::vector<float> strassen_mult(std::vector<float>& A, std::vector<float>& B, int N, int n0=1023) {
     if(N<=n0){
         return conventional_mult(A,B,N);
     }
