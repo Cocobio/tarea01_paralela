@@ -1,5 +1,6 @@
 #include "SquareMatrix.hpp"
-
+#include <cstring>
+#include <iostream>
 namespace vlsi {
 
 template<class T>
@@ -9,6 +10,16 @@ SquareMatrix<T>::SquareMatrix(size_t dimension) {
     this->row_size = dimension;
     this->offset[0] = 0u;
     this->offset[1] = 0u;
+}
+
+template<class T>
+SquareMatrix<T>::SquareMatrix(size_t dimension, size_t id) {
+    this->dim = dimension;
+    this->data = new T[this->dim * this->dim];
+    this->row_size = dimension;
+    this->offset[0] = 0u;
+    this->offset[1] = 0u;
+    this->id=id;
 }
 
 template<class T>
@@ -43,12 +54,22 @@ SquareMatrix<T>::~SquareMatrix() {
     if (this->offset[0] == 0 &&
         this->offset[1] == 0 &&
         this->row_size == this->dim)
+        
         delete[] this->data;
 }
 
 template<class T>
 T& SquareMatrix<T>::operator[](size_t i, size_t j) {
     return this->data[(this->offset[0]+i)*this->row_size + this->offset[1]+j];
+}
+
+template<class T>
+bool SquareMatrix<T>::operator==(const SquareMatrix<T>& other) const{
+    return this->dim == other.dim &&
+           this->row_size == other.row_size &&
+           this->offset[0] == other.offset[0] &&
+           this->offset[1] == other.offset[1] &&
+           memcmp(this->data, other.data, this->dim * this->dim * sizeof(T)) == 0;
 }
 
 } // vlsi
