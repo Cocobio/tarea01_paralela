@@ -8,6 +8,12 @@ Matrix multiplication using naive/tiling/strassen approach. Followed by OpenMP p
 - [ ] Hacer makefile con IA
     - [ ] Compile Run Test
 - [ ] Descripción de las implementaciones
+  - [ ] Multiplicación clásica
+  - [ ] Multiplicación por bloques (cache-friendly)
+  - [ ] Algoritmo de Strassen
+  - [ ] Versión paralela por bloques (OpenMP)
+  - [ ] Strassen paralelo (OpenMP)
+  - [ ] Versión híbrida
 
 * Carito:
     - [ ] Analisis teorico:
