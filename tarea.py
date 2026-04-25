@@ -1,0 +1,117 @@
+#!/usr/bin/env python3
+"""
+Command-line utility to run compile or test actions.
+
+This script accepts a single positional argument with two possible values:
+'compile' or 'test'. Based on the argument, it executes the corresponding
+function, which can be customized to run system commands.
+"""
+
+from __future__ import annotations
+
+import argparse
+import os
+import subprocess
+from typing import Dict
+
+
+def compile() -> None:
+    """Run the compile process.
+
+    Modify this function to include the actual compile command and any
+    required environment variables.
+    """
+    # Copy current environment and modify as needed
+    # env: Dict[str, str] = os.environ.copy()
+    # env["ADD_ENV_VAR_NAME_HERE"] = "value"  # Add your environment variable here
+
+    # Replace with your actual compile command
+    def compile_test(test_name: str) -> None:
+        process = subprocess.Popen(
+            f"g++ -std=c++23 {test_name}.cpp -o {test_name}".split(),
+            # env=env,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+        )
+
+        stdout, stderr = process.communicate()
+
+        print("Compile stdout:")
+        print(stdout)
+
+        if stderr:
+            print("Compile stderr:")
+            print(stderr)
+
+    tests = ['sequential_tile_test', 'strassen_test']
+    for test in tests:
+        compile_test(test)
+
+
+def test() -> None:
+    """Run the test process.
+
+    Modify this function to include the actual test command and any
+    required environment variables.
+    """
+    # Copy current environment and modify as needed
+    # env: Dict[str, str] = os.environ.copy()
+    # env["ADD_ENV_VAR_NAME_HERE"] = "value"  # Add your environment variable here
+
+    # Replace with your actual test command
+    for i in range(2, 12):
+        N = 1 << i
+        print(f"N = {N}")
+        for j in range(1, 9):
+            tile_size = 1 << j
+            print(f"tile = {tile_size} ", end='')
+            process = subprocess.Popen(
+                f"./sequential_tile_test {N} {tile_size}".split(),
+                # env=env,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True,
+            )
+
+            stdout, stderr = process.communicate()
+
+            print(stdout, end='')
+
+            if stderr:
+                print("Test stderr:")
+                print(stderr)
+
+
+def parse_args() -> argparse.Namespace:
+    """Parse command-line arguments.
+
+    Returns:
+        argparse.Namespace: Parsed arguments with the selected action.
+    """
+    parser = argparse.ArgumentParser(
+        description="Run compile or test actions."
+    )
+    parser.add_argument(
+        "action",
+        choices=["compile", "test"],
+        help="Action to perform: 'compile' or 'test'.",
+    )
+    return parser.parse_args()
+
+
+def main() -> None:
+    """Main entry point of the script."""
+    args = parse_args()
+
+    if args.action == "compile":
+        compile()
+    elif args.action == "test":
+        test()
+    else:
+        # This branch should not be reached due to argparse choices
+        raise ValueError(f"Unsupported action: {args.action}")
+
+
+if __name__ == "__main__":
+    main()
