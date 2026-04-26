@@ -1,4 +1,5 @@
 #include "SquareMatrix.hpp"
+#include <cstring>
 
 namespace vlsi {
 

@@ -1,0 +1,818 @@
+Testing: sequential_tile_test
+========================================
+N = 4
+tile = 2 Measure time: 1.15e-06
+Measure time: 1.09e-06
+Measure time: 1.06e-06
+Measure time: 1.15e-06
+Measure time: 1.04e-06
+Measure time: 1.06e-06
+Measure time: 1.01e-06
+Measure time: 1.39e-06
+Measure time: 1.03e-06
+Measure time: 1.03e-06
+tile = 4 Measure time: 9.1e-07
+Measure time: 1.01e-06
+Measure time: 9.1e-07
+Measure time: 9.2e-07
+Measure time: 9e-07
+Measure time: 8.8e-07
+Measure time: 9.4e-07
+Measure time: 8.7e-07
+Measure time: 8.6e-07
+Measure time: 9e-07
+tile = 8 Measure time: 9.1e-07
+Measure time: 9.3e-07
+Measure time: 8.8e-07
+Measure time: 9e-07
+Measure time: 9.3e-07
+Measure time: 9e-07
+Measure time: 8.9e-07
+Measure time: 9.19e-07
+Measure time: 8.7e-07
+Measure time: 9.1e-07
+tile = 16 Measure time: 9.2e-07
+Measure time: 9.3e-07
+Measure time: 9.1e-07
+Measure time: 9.2e-07
+Measure time: 8.9e-07
+Measure time: 8.4e-07
+Measure time: 9.4e-07
+Measure time: 8.6e-07
+Measure time: 9.2e-07
+Measure time: 8.9e-07
+tile = 32 Measure time: 8.8e-07
+Measure time: 1.16e-06
+Measure time: 8.9e-07
+Measure time: 9.8e-07
+Measure time: 9e-07
+Measure time: 8.8e-07
+Measure time: 9.1e-07
+Measure time: 8.9e-07
+Measure time: 8.6e-07
+Measure time: 8.8e-07
+tile = 64 Measure time: 9.1e-07
+Measure time: 1.11e-06
+Measure time: 1.22e-06
+Measure time: 8.7e-07
+Measure time: 8.6e-07
+Measure time: 8.8e-07
+Measure time: 8.5e-07
+Measure time: 8.8e-07
+Measure time: 8.5e-07
+Measure time: 8.8e-07
+tile = 128 Measure time: 8.8e-07
+Measure time: 8.6e-07
+Measure time: 8.9e-07
+Measure time: 8.6e-07
+Measure time: 8.7e-07
+Measure time: 1.15e-06
+Measure time: 1.15e-06
+Measure time: 1.24e-06
+Measure time: 1.14e-06
+Measure time: 1.22e-06
+tile = 256 Measure time: 1.2e-06
+Measure time: 1.19e-06
+Measure time: 1.14e-06
+Measure time: 8.7e-07
+Measure time: 8.5e-07
+Measure time: 1.07e-06
+Measure time: 1.13e-06
+Measure time: 1.17e-06
+Measure time: 1.16e-06
+Measure time: 1.2e-06
+N = 8
+tile = 2 Measure time: 4.37e-06
+Measure time: 4.17e-06
+Measure time: 3.67e-06
+Measure time: 3.99e-06
+Measure time: 3.13e-06
+Measure time: 3.17e-06
+Measure time: 3.13e-06
+Measure time: 3.19e-06
+Measure time: 3.11e-06
+Measure time: 4.11e-06
+tile = 4 Measure time: 2.85e-06
+Measure time: 2.94e-06
+Measure time: 2.92e-06
+Measure time: 2.83e-06
+Measure time: 2.9e-06
+Measure time: 2.89e-06
+Measure time: 3.01e-06
+Measure time: 2.88e-06
+Measure time: 2.9e-06
+Measure time: 2.93e-06
+tile = 8 Measure time: 2.54e-06
+Measure time: 3.09e-06
+Measure time: 2.63e-06
+Measure time: 3.42e-06
+Measure time: 2.5e-06
+Measure time: 2.55e-06
+Measure time: 2.52e-06
+Measure time: 2.59e-06
+Measure time: 2.51e-06
+Measure time: 2.53e-06
+tile = 16 Measure time: 2.56e-06
+Measure time: 2.59e-06
+Measure time: 2.57e-06
+Measure time: 2.54e-06
+Measure time: 2.58e-06
+Measure time: 2.52e-06
+Measure time: 2.57e-06
+Measure time: 2.5e-06
+Measure time: 2.51e-06
+Measure time: 2.56e-06
+tile = 32 Measure time: 2.48e-06
+Measure time: 2.5e-06
+Measure time: 2.55e-06
+Measure time: 2.55e-06
+Measure time: 2.55e-06
+Measure time: 2.78e-06
+Measure time: 2.65e-06
+Measure time: 2.54e-06
+Measure time: 2.48e-06
+Measure time: 2.5e-06
+tile = 64 Measure time: 2.48e-06
+Measure time: 2.5e-06
+Measure time: 2.5e-06
+Measure time: 2.51e-06
+Measure time: 2.58e-06
+Measure time: 2.56e-06
+Measure time: 2.53e-06
+Measure time: 2.52e-06
+Measure time: 2.55e-06
+Measure time: 2.52e-06
+tile = 128 Measure time: 2.54e-06
+Measure time: 2.53e-06
+Measure time: 2.64e-06
+Measure time: 2.53e-06
+Measure time: 2.67e-06
+Measure time: 2.52e-06
+Measure time: 2.57e-06
+Measure time: 2.55e-06
+Measure time: 2.64e-06
+Measure time: 2.53e-06
+tile = 256 Measure time: 2.67e-06
+Measure time: 2.58e-06
+Measure time: 2.99e-06
+Measure time: 2.55e-06
+Measure time: 2.53e-06
+Measure time: 2.559e-06
+Measure time: 2.5e-06
+Measure time: 2.53e-06
+Measure time: 2.54e-06
+Measure time: 2.49e-06
+N = 16
+tile = 2 Measure time: 1.963e-05
+Measure time: 1.994e-05
+Measure time: 2.268e-05
+Measure time: 1.973e-05
+Measure time: 1.947e-05
+Measure time: 1.964e-05
+Measure time: 1.959e-05
+Measure time: 2.164e-05
+Measure time: 1.965e-05
+Measure time: 1.987e-05
+tile = 4 Measure time: 1.712e-05
+Measure time: 1.6949e-05
+Measure time: 1.718e-05
+Measure time: 1.965e-05
+Measure time: 1.696e-05
+Measure time: 2.37e-05
+Measure time: 1.705e-05
+Measure time: 1.714e-05
+Measure time: 1.698e-05
+Measure time: 1.703e-05
+tile = 8 Measure time: 1.614e-05
+Measure time: 1.626e-05
+Measure time: 1.617e-05
+Measure time: 1.63e-05
+Measure time: 1.606e-05
+Measure time: 1.648e-05
+Measure time: 1.61e-05
+Measure time: 1.609e-05
+Measure time: 1.6089e-05
+Measure time: 1.609e-05
+tile = 16 Measure time: 1.573e-05
+Measure time: 2.067e-05
+Measure time: 1.583e-05
+Measure time: 1.5759e-05
+Measure time: 1.5709e-05
+Measure time: 1.574e-05
+Measure time: 1.566e-05
+Measure time: 1.571e-05
+Measure time: 1.582e-05
+Measure time: 1.577e-05
+tile = 32 Measure time: 1.577e-05
+Measure time: 1.567e-05
+Measure time: 1.5679e-05
+Measure time: 1.56e-05
+Measure time: 1.564e-05
+Measure time: 1.569e-05
+Measure time: 1.57e-05
+Measure time: 1.564e-05
+Measure time: 1.573e-05
+Measure time: 1.5839e-05
+tile = 64 Measure time: 1.562e-05
+Measure time: 1.576e-05
+Measure time: 1.5739e-05
+Measure time: 1.559e-05
+Measure time: 1.574e-05
+Measure time: 1.571e-05
+Measure time: 1.565e-05
+Measure time: 1.5879e-05
+Measure time: 1.565e-05
+Measure time: 1.576e-05
+tile = 128 Measure time: 1.566e-05
+Measure time: 1.574e-05
+Measure time: 1.831e-05
+Measure time: 1.562e-05
+Measure time: 1.566e-05
+Measure time: 1.571e-05
+Measure time: 1.567e-05
+Measure time: 1.5619e-05
+Measure time: 1.576e-05
+Measure time: 1.569e-05
+tile = 256 Measure time: 1.569e-05
+Measure time: 1.561e-05
+Measure time: 1.565e-05
+Measure time: 1.561e-05
+Measure time: 1.5629e-05
+Measure time: 1.567e-05
+Measure time: 1.573e-05
+Measure time: 1.565e-05
+Measure time: 1.568e-05
+Measure time: 1.571e-05
+N = 32
+tile = 2 Measure time: 0.000150848
+Measure time: 0.000148768
+Measure time: 0.000150638
+Measure time: 0.000149018
+Measure time: 0.000149149
+Measure time: 0.000193628
+Measure time: 0.000148958
+Measure time: 0.000153969
+Measure time: 0.000158889
+Measure time: 0.000148789
+tile = 4 Measure time: 0.000129099
+Measure time: 0.000129088
+Measure time: 0.000129159
+Measure time: 0.000133008
+Measure time: 0.000129309
+Measure time: 0.000129269
+Measure time: 0.000129109
+Measure time: 0.000128918
+Measure time: 0.000129079
+Measure time: 0.000128939
+tile = 8 Measure time: 0.000127139
+Measure time: 0.000123109
+Measure time: 0.000123409
+Measure time: 0.000128938
+Measure time: 0.000122929
+Measure time: 0.000122879
+Measure time: 0.000127178
+Measure time: 0.000122888
+Measure time: 0.000123119
+Measure time: 0.000122989
+tile = 16 Measure time: 0.000124989
+Measure time: 0.000120758
+Measure time: 0.000120929
+Measure time: 0.000120769
+Measure time: 0.000120788
+Measure time: 0.000120799
+Measure time: 0.000121119
+Measure time: 0.000124879
+Measure time: 0.000121558
+Measure time: 0.000121089
+tile = 32 Measure time: 0.000119019
+Measure time: 0.000119249
+Measure time: 0.000119179
+Measure time: 0.000119029
+Measure time: 0.000121628
+Measure time: 0.000127498
+Measure time: 0.000119109
+Measure time: 0.000119009
+Measure time: 0.000119038
+Measure time: 0.000119069
+tile = 64 Measure time: 0.000119039
+Measure time: 0.000119028
+Measure time: 0.000119139
+Measure time: 0.000118999
+Measure time: 0.000119099
+Measure time: 0.000129768
+Measure time: 0.000119009
+Measure time: 0.000119019
+Measure time: 0.000119038
+Measure time: 0.000118959
+tile = 128 Measure time: 0.000119029
+Measure time: 0.000124078
+Measure time: 0.000118959
+Measure time: 0.000119029
+Measure time: 0.000119009
+Measure time: 0.000119049
+Measure time: 0.000119448
+Measure time: 0.000118989
+Measure time: 0.000145239
+Measure time: 0.000119089
+tile = 256 Measure time: 0.000119069
+Measure time: 0.000119039
+Measure time: 0.000118999
+Measure time: 0.000119029
+Measure time: 0.000119089
+Measure time: 0.000127319
+Measure time: 0.000119039
+Measure time: 0.000119069
+Measure time: 0.000119049
+Measure time: 0.000119049
+N = 64
+tile = 2 Measure time: 0.00122928
+Measure time: 0.00120632
+Measure time: 0.00119747
+Measure time: 0.00119708
+Measure time: 0.00121007
+Measure time: 0.00120099
+Measure time: 0.00120394
+Measure time: 0.00119491
+Measure time: 0.00123543
+Measure time: 0.0011889
+tile = 4 Measure time: 0.00104235
+Measure time: 0.0010404
+Measure time: 0.00104225
+Measure time: 0.00104739
+Measure time: 0.00104267
+Measure time: 0.00104023
+Measure time: 0.00103874
+Measure time: 0.00104181
+Measure time: 0.00103761
+Measure time: 0.00105117
+tile = 8 Measure time: 0.000988001
+Measure time: 0.0009993
+Measure time: 0.00108352
+Measure time: 0.00100727
+Measure time: 0.00101744
+Measure time: 0.000994921
+Measure time: 0.00099991
+Measure time: 0.0009926
+Measure time: 0.000995511
+Measure time: 0.000998681
+tile = 16 Measure time: 0.000976531
+Measure time: 0.000975251
+Measure time: 0.000972281
+Measure time: 0.000976571
+Measure time: 0.000973371
+Measure time: 0.0009758
+Measure time: 0.000981981
+Measure time: 0.000970961
+Measure time: 0.000988531
+Measure time: 0.000975941
+tile = 32 Measure time: 0.00096035
+Measure time: 0.000967021
+Measure time: 0.000959841
+Measure time: 0.000987411
+Measure time: 0.000965611
+Measure time: 0.000964031
+Measure time: 0.000965641
+Measure time: 0.00100272
+Measure time: 0.00129215
+Measure time: 0.000960101
+tile = 64 Measure time: 0.000965971
+Measure time: 0.00096741
+Measure time: 0.000954121
+Measure time: 0.00095418
+Measure time: 0.00095504
+Measure time: 0.00097424
+Measure time: 0.000956791
+Measure time: 0.000955651
+Measure time: 0.000956121
+Measure time: 0.000955421
+tile = 128 Measure time: 0.000949601
+Measure time: 0.000995771
+Measure time: 0.000959991
+Measure time: 0.0009842
+Measure time: 0.000955681
+Measure time: 0.000954881
+Measure time: 0.000961751
+Measure time: 0.0009959
+Measure time: 0.000958011
+Measure time: 0.0009541
+tile = 256 Measure time: 0.000965881
+Measure time: 0.00096146
+Measure time: 0.00096728
+Measure time: 0.0011997
+Measure time: 0.000961171
+Measure time: 0.000962051
+Measure time: 0.000992581
+Measure time: 0.000957561
+Measure time: 0.000953781
+Measure time: 0.000966911
+N = 128
+tile = 2 Measure time: 0.00965939
+Measure time: 0.00964433
+Measure time: 0.00949268
+Measure time: 0.00964976
+Measure time: 0.00948124
+Measure time: 0.0097776
+Measure time: 0.00957326
+Measure time: 0.00966406
+Measure time: 0.00962666
+Measure time: 0.00965715
+tile = 4 Measure time: 0.00827801
+Measure time: 0.00901699
+Measure time: 0.00831788
+Measure time: 0.00851014
+Measure time: 0.00830596
+Measure time: 0.00836309
+Measure time: 0.00825532
+Measure time: 0.00827754
+Measure time: 0.00870774
+Measure time: 0.00828566
+tile = 8 Measure time: 0.00798964
+Measure time: 0.00801048
+Measure time: 0.00791979
+Measure time: 0.00817278
+Measure time: 0.00800155
+Measure time: 0.00789136
+Measure time: 0.00806274
+Measure time: 0.00827954
+Measure time: 0.00793648
+Measure time: 0.00800701
+tile = 16 Measure time: 0.00780376
+Measure time: 0.00828815
+Measure time: 0.00784308
+Measure time: 0.0080098
+Measure time: 0.0077786
+Measure time: 0.00802601
+Measure time: 0.00819903
+Measure time: 0.00780979
+Measure time: 0.00782393
+Measure time: 0.00787213
+tile = 32 Measure time: 0.00773012
+Measure time: 0.00768095
+Measure time: 0.00775129
+Measure time: 0.00768379
+Measure time: 0.00775937
+Measure time: 0.00766127
+Measure time: 0.00768483
+Measure time: 0.00766792
+Measure time: 0.00778529
+Measure time: 0.00768114
+tile = 64 Measure time: 0.00789409
+Measure time: 0.0076459
+Measure time: 0.00762048
+Measure time: 0.00790258
+Measure time: 0.00775889
+Measure time: 0.0078166
+Measure time: 0.00764714
+Measure time: 0.00765054
+Measure time: 0.00761112
+Measure time: 0.0079317
+tile = 128 Measure time: 0.00800226
+Measure time: 0.00784273
+Measure time: 0.00803708
+Measure time: 0.00787475
+Measure time: 0.00805639
+Measure time: 0.00777507
+Measure time: 0.00771384
+Measure time: 0.00779338
+Measure time: 0.00801566
+Measure time: 0.00780469
+tile = 256 Measure time: 0.00782244
+Measure time: 0.00777078
+Measure time: 0.00771101
+Measure time: 0.00776498
+Measure time: 0.00775129
+Measure time: 0.00798686
+Measure time: 0.00772722
+Measure time: 0.0078289
+Measure time: 0.00777044
+Measure time: 0.0077589
+N = 256
+tile = 2 Measure time: 0.0763301
+Measure time: 0.0771983
+Measure time: 0.0768673
+Measure time: 0.0771701
+Measure time: 0.0772429
+Measure time: 0.0757427
+Measure time: 0.0758359
+Measure time: 0.0768813
+Measure time: 0.0769134
+Measure time: 0.0772096
+tile = 4 Measure time: 0.0672215
+Measure time: 0.0665501
+Measure time: 0.0676472
+Measure time: 0.0669618
+Measure time: 0.0670302
+Measure time: 0.066229
+Measure time: 0.066741
+Measure time: 0.0665327
+Measure time: 0.0662467
+Measure time: 0.0662913
+tile = 8 Measure time: 0.0641843
+Measure time: 0.0809731
+Measure time: 0.0647367
+Measure time: 0.0649313
+Measure time: 0.0646332
+Measure time: 0.0635239
+Measure time: 0.0635729
+Measure time: 0.0633689
+Measure time: 0.0635776
+Measure time: 0.0633231
+tile = 16 Measure time: 0.0649698
+Measure time: 0.062684
+Measure time: 0.062081
+Measure time: 0.0626279
+Measure time: 0.0622302
+Measure time: 0.0623053
+Measure time: 0.0624023
+Measure time: 0.0626743
+Measure time: 0.0621608
+Measure time: 0.0626128
+tile = 32 Measure time: 0.0621038
+Measure time: 0.0614692
+Measure time: 0.0611739
+Measure time: 0.0621839
+Measure time: 0.0617534
+Measure time: 0.0616581
+Measure time: 0.061608
+Measure time: 0.0617394
+Measure time: 0.0618494
+Measure time: 0.0622488
+tile = 64 Measure time: 0.0621382
+Measure time: 0.0613087
+Measure time: 0.0617563
+Measure time: 0.0612524
+Measure time: 0.0623351
+Measure time: 0.0618271
+Measure time: 0.0614799
+Measure time: 0.0612897
+Measure time: 0.0621108
+Measure time: 0.0625057
+tile = 128 Measure time: 0.0615299
+Measure time: 0.0616597
+Measure time: 0.063116
+Measure time: 0.0629422
+Measure time: 0.0620018
+Measure time: 0.0619113
+Measure time: 0.061887
+Measure time: 0.0621685
+Measure time: 0.0627998
+Measure time: 0.0617114
+tile = 256 Measure time: 0.0611722
+Measure time: 0.0616464
+Measure time: 0.0613403
+Measure time: 0.0613233
+Measure time: 0.0612801
+Measure time: 0.0616786
+Measure time: 0.0614048
+Measure time: 0.0610484
+Measure time: 0.0618138
+Measure time: 0.0616035
+N = 512
+tile = 2 Measure time: 0.609376
+Measure time: 0.609978
+Measure time: 0.611662
+Measure time: 0.609032
+Measure time: 0.61485
+Measure time: 0.610892
+Measure time: 0.606298
+Measure time: 0.607231
+Measure time: 0.608045
+Measure time: 0.607397
+tile = 4 Measure time: 0.533029
+Measure time: 0.529692
+Measure time: 0.529037
+Measure time: 0.528791
+Measure time: 0.527531
+Measure time: 0.53288
+Measure time: 0.532412
+Measure time: 0.529222
+Measure time: 0.531992
+Measure time: 0.533241
+tile = 8 Measure time: 0.517483
+Measure time: 0.534422
+Measure time: 0.590526
+Measure time: 0.536609
+Measure time: 0.475377
+Measure time: 0.554839
+Measure time: 0.49162
+Measure time: 0.516015
+Measure time: 0.505507
+Measure time: 0.505618
+tile = 16 Measure time: 0.495821
+Measure time: 0.469381
+Measure time: 0.500684
+Measure time: 0.505588
+Measure time: 0.497003
+Measure time: 0.498275
+Measure time: 0.497895
+Measure time: 0.502545
+Measure time: 0.497454
+Measure time: 0.501734
+tile = 32 Measure time: 0.490701
+Measure time: 0.492165
+Measure time: 0.489002
+Measure time: 0.493647
+Measure time: 0.491531
+Measure time: 0.489252
+Measure time: 0.496102
+Measure time: 0.483427
+Measure time: 0.510738
+Measure time: 0.503307
+tile = 64 Measure time: 0.517021
+Measure time: 0.487376
+Measure time: 0.487083
+Measure time: 0.488014
+Measure time: 0.494172
+Measure time: 0.48802
+Measure time: 0.487336
+Measure time: 0.48907
+Measure time: 0.493551
+Measure time: 0.486191
+tile = 128 Measure time: 0.49194
+Measure time: 0.492961
+Measure time: 0.491586
+Measure time: 0.492761
+Measure time: 0.492316
+Measure time: 0.496449
+Measure time: 0.494741
+Measure time: 0.512504
+Measure time: 0.493156
+Measure time: 0.513155
+tile = 256 Measure time: 0.488576
+Measure time: 0.453512
+Measure time: 0.45439
+Measure time: 0.49763
+Measure time: 0.490179
+Measure time: 0.487973
+Measure time: 0.492533
+Measure time: 0.488185
+Measure time: 0.488132
+Measure time: 0.489315
+N = 1024
+tile = 2 Measure time: 4.91422
+Measure time: 4.91147
+Measure time: 4.72088
+Measure time: 4.77181
+Measure time: 4.65761
+Measure time: 4.92127
+Measure time: 4.9402
+Measure time: 4.87032
+Measure time: 4.67576
+Measure time: 4.99364
+tile = 4 Measure time: 4.12951
+Measure time: 4.05919
+Measure time: 4.1446
+Measure time: 4.33749
+Measure time: 4.22877
+Measure time: 4.08756
+Measure time: 4.20327
+Measure time: 4.35495
+Measure time: 4.14975
+Measure time: 4.40452
+tile = 8 Measure time: 3.88517
+Measure time: 4.06506
+Measure time: 4.0964
+Measure time: 4.09607
+Measure time: 4.03207
+Measure time: 3.97393
+Measure time: 3.94117
+Measure time: 3.96789
+Measure time: 4.10178
+Measure time: 3.98887
+tile = 16 Measure time: 3.74289
+Measure time: 3.71822
+Measure time: 3.82569
+Measure time: 3.96756
+Measure time: 3.82587
+Measure time: 3.87682
+Measure time: 3.97661
+Measure time: 3.82457
+Measure time: 3.93524
+Measure time: 4.08835
+tile = 32 Measure time: 4.0307
+Measure time: 3.80975
+Measure time: 3.82464
+Measure time: 3.93636
+Measure time: 3.93219
+Measure time: 3.94769
+Measure time: 3.93426
+Measure time: 3.75485
+Measure time: 3.71548
+Measure time: 3.68534
+tile = 64 Measure time: 3.88869
+Measure time: 3.68698
+Measure time: 3.65357
+Measure time: 3.62527
+Measure time: 3.63096
+Measure time: 3.6196
+Measure time: 3.63572
+Measure time: 3.85418
+Measure time: 3.84648
+Measure time: 3.72987
+tile = 128 Measure time: 3.98481
+Measure time: 3.95551
+Measure time: 3.76495
+Measure time: 4.02475
+Measure time: 3.94174
+Measure time: 4.04635
+Measure time: 3.96436
+Measure time: 4.05806
+Measure time: 3.9921
+Measure time: 3.93612
+tile = 256 Measure time: 4.12945
+Measure time: 4.05742
+Measure time: 4.08974
+Measure time: 4.11713
+Measure time: 3.89553
+Measure time: 3.96621
+Measure time: 4.14177
+Measure time: 4.09787
+Measure time: 4.12615
+Measure time: 3.9667
+N = 2048
+tile = 2 Measure time: 37.3511
+Measure time: 37.4861
+Measure time: 39.2057
+Measure time: 37.5882
+Measure time: 37.3905
+Measure time: 37.52
+Measure time: 37.7233
+Measure time: 37.9261
+Measure time: 38.441
+Measure time: 38.1983
+tile = 4 Measure time: 33.086
+Measure time: 32.6152
+Measure time: 32.2954
+Measure time: 32.5282
+Measure time: 33.5739
+Measure time: 33.1673
+Measure time: 32.7427
+Measure time: 33.3532
+Measure time: 34.0439
+Measure time: 33.6585
+tile = 8 Measure time: 31.0817
+Measure time: 32.1421
+Measure time: 32.4244
+Measure time: 32.517
+Measure time: 32.1204
+Measure time: 31.566
+Measure time: 31.8951
+Measure time: 31.6175
+Measure time: 32.0119
+Measure time: 31.8912
+tile = 16 Measure time: 30.588
+Measure time: 30.6193
+Measure time: 29.8605
+Measure time: 30.7688
+Measure time: 30.5207
+Measure time: 30.8287
+Measure time: 29.5701
+Measure time: 29.8633
+Measure time: 29.87
+Measure time: 31.6043
+tile = 32 Measure time: 30.4687
+Measure time: 31.018
+Measure time: 31.0212
+Measure time: 30.1321
+Measure time: 29.8996
+Measure time: 30.3017
+Measure time: 30.6382
+Measure time: 30.8685
+Measure time: 31.0031
+Measure time: 29.9483
+tile = 64 Measure time: 32.4498
+Measure time: 33.2159
+Measure time: 32.475
+Measure time: 32.93
+Measure time: 32.7924
+Measure time: 32.3933
+Measure time: 32.9149
+Measure time: 32.573
+Measure time: 33.838
+Measure time: 34.4132
+tile = 128 Measure time: 33.4963
+Measure time: 32.7982
+Measure time: 33.1421
+Measure time: 33.4167
+Measure time: 34.9722
+Measure time: 35.2983
+Measure time: 35.1212
+Measure time: 32.3138
+Traceback (most recent call last):
+  File "/home/Yiann/Desktop/tarea01_paralela/tarea.py", line 156, in <module>
+    main()
+    ~~~~^^
+  File "/home/Yiann/Desktop/tarea01_paralela/tarea.py", line 147, in main
+    test(upper_limit)
+    ~~~~^^^^^^^^^^^^^
+  File "/home/Yiann/Desktop/tarea01_paralela/tarea.py", line 80, in test
+    stdout, stderr = process.communicate()
+                     ~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib64/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib64/python3.13/subprocess.py", line 2154, in _communicate
+    ready = selector.select(timeout)
+  File "/usr/lib64/python3.13/selectors.py", line 398, in select
+    fd_event_list = self._selector.poll(timeout)
+KeyboardInterrupt
