@@ -1,6 +1,6 @@
 #include <cstdlib>
 #include <iostream>
-#include "../../src/TileMultiplication.cpp"
+#include "../../src/TileParallelMultiplication.cpp"
 #include "../../src/matrix.cpp"
 #include <omp.h>
 
@@ -13,7 +13,7 @@ int main(int argn, char** argv) {
     float* B = (float*)malloc(N*N*sizeof(float));
     float* C = (float*)malloc(N*N*sizeof(float));
 
-    double time = medir([&]() {tile_multiplication(A, B, C, N, tile);});
+    double time = medir([&]() {tile_multiplication_parallel(A, B, C, N, tile);});
     std::cout << "Measure time: " << time << std::endl;
 
     free(A);
