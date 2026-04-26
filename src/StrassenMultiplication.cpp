@@ -7,7 +7,7 @@ inline std::vector<T> conventional_mult(std::vector<T>& A,
                                         int N) {
     std::vector<T> C(N*N, 0.0f);
 
-    for(int i=0; i<N; i++){
+    for(int i=0; i<N; i++){ 
         for(int j=0; j<N; j++){
             T sum=T();
             for(int k=0; k<N; k++){

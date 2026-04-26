@@ -1,7 +1,7 @@
 #include <cstdlib>
 #include <iostream>
-#include "src/TileMultiplication.cpp"
-#include "src/matrix.cpp"
+#include "../src/TileMultiplication.cpp"
+#include "../src/matrix.cpp"
 
 int main(int argn, char** argv) {
     int N = atoi(argv[1]);

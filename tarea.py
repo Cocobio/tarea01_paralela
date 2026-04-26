@@ -7,12 +7,9 @@ This script accepts a single positional argument with two possible values:
 function, which can be customized to run system commands.
 """
 
-from __future__ import annotations
-
 import argparse
 import os
 import subprocess
-from typing import Dict
 
 
 def compile() -> None:
@@ -28,7 +25,8 @@ def compile() -> None:
     # Replace with your actual compile command
     def compile_test(test_name: str) -> None:
         process = subprocess.Popen(
-            f"g++ -std=c++23 {test_name}.cpp -o {test_name}".split(),
+            f"g++ -std=c++23 \
+                    test_suite/{test_name}.cpp -o bin/{test_name}".split(),
             # env=env,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
@@ -37,12 +35,14 @@ def compile() -> None:
 
         stdout, stderr = process.communicate()
 
-        print("Compile stdout:")
-        print(stdout)
+        if stdout.strip():
+            print(stdout)
 
         if stderr:
             print("Compile stderr:")
             print(stderr)
+
+    os.makedirs('bin', exist_ok=True)
 
     tests = ['sequential_tile_test', 'strassen_test']
     for test in tests:
@@ -59,28 +59,30 @@ def test() -> None:
     # env: Dict[str, str] = os.environ.copy()
     # env["ADD_ENV_VAR_NAME_HERE"] = "value"  # Add your environment variable here
 
-    # Replace with your actual test command
-    for i in range(2, 12):
-        N = 1 << i
-        print(f"N = {N}")
-        for j in range(1, 9):
-            tile_size = 1 << j
-            print(f"tile = {tile_size} ", end='')
-            process = subprocess.Popen(
-                f"./sequential_tile_test {N} {tile_size}".split(),
-                # env=env,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE,
-                text=True,
-            )
+    for test_bin in os.listdir('bin'):
+        for i in range(2, 12):
+            N = 1 << i
+            print(f"N = {N}")
+            for j in range(1, 9):
+                tile_size = 1 << j
+                print(f"tile = {tile_size} ", end='')
 
-            stdout, stderr = process.communicate()
+                for _ in range(10):
+                    process = subprocess.Popen(
+                        f"./bin/{test_bin} {N} {tile_size}".split(),
+                        # env=env,
+                        stdout=subprocess.PIPE,
+                        stderr=subprocess.PIPE,
+                        text=True,
+                    )
 
-            print(stdout, end='')
+                    stdout, stderr = process.communicate()
 
-            if stderr:
-                print("Test stderr:")
-                print(stderr)
+                    print(stdout, end='')
+
+                    if stderr:
+                        print("Test stderr:")
+                        print(stderr)
 
 
 def parse_args() -> argparse.Namespace:
