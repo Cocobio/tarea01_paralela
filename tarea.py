@@ -130,7 +130,7 @@ def parse_args() -> argparse.Namespace:
         choices=["compile", "test", "parallel_test"],
         help="Action to perform: 'compile', 'test' or 'parallel_test'.",
     )
-    parser.add_argument("upper_limit", type=int,
+    parser.add_argument("--max_N", type=int, default=11,
                         help="Maximum size of matrix.")
 
     return parser.parse_args()
@@ -139,7 +139,7 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     """Main entry point of the script."""
     args = parse_args()
-    upper_limit = args.upper_limit
+    upper_limit = args.max_N
 
     if args.action == "compile":
         compile()
