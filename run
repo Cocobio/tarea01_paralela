@@ -48,9 +48,9 @@ def compile() -> None:
 
     # Compilations
     for test in os.listdir("test_suite/sequential"):
-        compile_test(test.replace(".cpp", ""), "sequential")
+        compile_test(test.replace(".cpp", ""), "sequential", "-O2")
     for test in os.listdir("test_suite/parallel"):
-        compile_test(test.replace(".cpp", ""), "parallel", "-fopenmp")
+        compile_test(test.replace(".cpp", ""), "parallel", "-fopenmp -O2")
 
 
 def test(upper_limit: int = 11) -> None:
