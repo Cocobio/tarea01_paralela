@@ -1,35 +1,17 @@
 #include <cstdlib>
 #include <iostream>
-#include "src/naive.cpp"
+#include "../src/naive.cpp"
+#include "../src/matrix.hpp"
 
-int main() {
-    float A[16] = { 1, 2, 2, 1,
-                    1, 1, 2, 3,
-                    0, 1, 1, 0,
-                    2, 0, 0, 1};
+int main(int argn, char** argv) {
+    int N = atoi(argv[1]);
+    // ignore: argv[2]
 
-    float B[16] = { 0, 0, 1, 0,
-                    0, 3, 1, 0,
-                    1, 0, 2, 0,
-                    0, 1, 0, 0};
+    Matrix A = random_matrix(N);
+    Matrix B = random_matrix(N);
 
-    std::cout << "Multiplicacion naive usando vlsi::SquareMatrix<float>:\n";
-    // Migrando a SquareMatrix
-    vlsi::SquareMatrix<float> a(4), b(4);
-    for (int i=0; i<4; ++i) {
-        for (int j=0; j<4; ++j) {
-            a[i,j] = A[i*4+j];
-            b[i,j] = B[i*4+j];
-        }
-    }
-    
-    vlsi::SquareMatrix<float> c = naive_multiplication(a, b);
+    double time = medir([&]{ return mult_clasica(A, B); });
+    std::cout << "Measure time: " << time << std::endl;
 
-    for (int i=0; i<4; ++i) {
-        for (int j=0; j<4; ++j)
-            std::cout << c[i,j] << " ";
-        std::cout << std::endl;
-    }
-    
     return 0;
 }

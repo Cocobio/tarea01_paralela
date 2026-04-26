@@ -44,22 +44,54 @@ def compile() -> None:
 
     os.makedirs('bin', exist_ok=True)
 
-    tests = ['sequential_tile_test', 'strassen_test']
+    tests = ['sequential_tile_test', 'strassen_test', 'naive_test']
     for test in tests:
         compile_test(test)
 
 
-def test() -> None:
+def test(upper_limit: int = 11) -> None:
     """Run the test process.
 
     Modify this function to include the actual test command and any
     required environment variables.
     """
-    # Copy current environment and modify as needed
     # env: Dict[str, str] = os.environ.copy()
-    # env["ADD_ENV_VAR_NAME_HERE"] = "value"  # Add your environment variable here
+    # env["env"] = "value"
 
     for test_bin in os.listdir('bin'):
+        print(f"Testing: {test_bin}")
+        print(40*'=')
+        for i in range(2, upper_limit+1):
+            N = 1 << i
+            print(f"N = {N}")
+            for j in range(1, 9):
+                tile_size = 1 << j
+                print(f"tile = {tile_size} ", end='')
+
+                for _ in range(10):
+                    process = subprocess.Popen(
+                        f"./bin/{test_bin} {N} {tile_size}".split(),
+                        # env=env,
+                        stdout=subprocess.PIPE,
+                        stderr=subprocess.PIPE,
+                        text=True,
+                    )
+
+                    stdout, stderr = process.communicate()
+
+                    print(stdout, end='')
+
+                    if stderr:
+                        print("Test stderr:")
+                        print(stderr)
+        print(40*'=')
+
+
+def parallel_test() -> None:
+    env: dict[str, str] = os.environ.copy()
+    env["OMP_NUM_THREADS"] = ""
+
+    for test_bin in os.listdir('bin/parallel/'):
         for i in range(2, 12):
             N = 1 << i
             print(f"N = {N}")
@@ -92,24 +124,29 @@ def parse_args() -> argparse.Namespace:
         argparse.Namespace: Parsed arguments with the selected action.
     """
     parser = argparse.ArgumentParser(
-        description="Run compile or test actions."
-    )
+        description="Run compile or test actions.")
     parser.add_argument(
         "action",
-        choices=["compile", "test"],
-        help="Action to perform: 'compile' or 'test'.",
+        choices=["compile", "test", "parallel_test"],
+        help="Action to perform: 'compile', 'test' or 'parallel_test'.",
     )
+    parser.add_argument("upper_limit", type=int,
+                        help="Maximum size of matrix.")
+
     return parser.parse_args()
 
 
 def main() -> None:
     """Main entry point of the script."""
     args = parse_args()
+    upper_limit = args.upper_limit
 
     if args.action == "compile":
         compile()
     elif args.action == "test":
-        test()
+        test(upper_limit)
+    elif args.action == "parallel_test":
+        parallel_test()
     else:
         # This branch should not be reached due to argparse choices
         raise ValueError(f"Unsupported action: {args.action}")
