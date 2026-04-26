@@ -4,7 +4,7 @@
 std::vector<float> conventional_mult_parallel(std::vector<float> &A,
                                               std::vector<float> &B, int N) {
 
-  std::vector<float> C(N * N, 0.0f);
+std::vector<float> C(N * N, 0.0f);
 #pragma omp parallel for collapse(2)
   for (int i = 0; i < N; i++) {
     for (int j = 0; j < N; j++) {
@@ -139,34 +139,3 @@ std::vector<float> strassen_mult_parallel(std::vector<float> &A, std::vector<flo
   
   return C;
 }
-
-// int main(){
-//     int N=8;
-//     std::vector<float> A(N, std::vector<float>(N,0.0f)),B(N,
-//     std::vector<float>(N,0.0f)),Cnormal(N,
-//     std::vector<float>(N,0.0f)),Cstrassen(N, std::vector<float>(N,0.0f));
-//     for(int i=0; i<N;i++){
-//         for(int j=0; j<N;j++){
-//             A[i*(N/2)+j]=i*j;
-//             B[i*(N/2)+j]=i+j;
-//         }
-//     }
-//     Cnormal=conventional_mult(A,B,N);
-//     Cstrassen=strassen_mult(A,B,N,4);
-
-//     for(int i=0; i<N;i++){
-//         for(int j=0; j<N;j++){
-//             std::cout<<Cnormal[i*(N/2)+j]<<" ";
-//         }
-//         std::cout<<std::endl;
-//     }
-
-//     for(int i=0; i<N;i++){
-//         for(int j=0; j<N;j++){
-//             std::cout<<Cstrassen[i*(N/2)+j]<<" ";
-//         }
-//         std::cout<<std::endl;
-//     }
-
-//     return 0;
-// }

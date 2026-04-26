@@ -23,16 +23,17 @@ def compile() -> None:
     # env["ADD_ENV_VAR_NAME_HERE"] = "value"  # Add your environment variable here
 
     # Replace with your actual compile command
-    def compile_test(test_name: str) -> None:
+    def compile_test(test_name: str, suite: str, extra_flags: str = "") -> None:
         process = subprocess.Popen(
             f"g++ -std=c++23 \
-                    test_suite/{test_name}.cpp -o bin/{test_name}".split(),
+                    test_suite/{suite}/{test_name}.cpp -o bin/{suite}/{test_name} {extra_flags}".split(),
             # env=env,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True,
         )
 
+        print(f"Compiling: test_suite/{suite}/{test_name}.cpp")
         stdout, stderr = process.communicate()
 
         if stdout.strip():
@@ -42,11 +43,14 @@ def compile() -> None:
             print("Compile stderr:")
             print(stderr)
 
-    os.makedirs('bin', exist_ok=True)
+    os.makedirs('bin/sequential', exist_ok=True)
+    os.makedirs('bin/parallel', exist_ok=True)
 
-    tests = ['sequential_tile_test', 'strassen_test', 'naive_test']
-    for test in tests:
-        compile_test(test)
+    # Compilations
+    for test in os.listdir("test_suite/sequential"):
+        compile_test(test.replace(".cpp", ""), "sequential")
+    for test in os.listdir("test_suite/parallel"):
+        compile_test(test.replace(".cpp", ""), "parallel", "-fopenmp")
 
 
 def test(upper_limit: int = 11) -> None:
@@ -58,7 +62,8 @@ def test(upper_limit: int = 11) -> None:
     # env: Dict[str, str] = os.environ.copy()
     # env["env"] = "value"
 
-    for test_bin in os.listdir('bin'):
+    directory = "bin/sequential"
+    for test_bin in os.listdir(directory):
         print(f"Testing: {test_bin}")
         print(40*'=')
         for i in range(2, upper_limit+1):
@@ -70,7 +75,7 @@ def test(upper_limit: int = 11) -> None:
 
                 for _ in range(10):
                     process = subprocess.Popen(
-                        f"./bin/{test_bin} {N} {tile_size}".split(),
+                        f"./{directory}/{test_bin} {N} {tile_size}".split(),
                         # env=env,
                         stdout=subprocess.PIPE,
                         stderr=subprocess.PIPE,

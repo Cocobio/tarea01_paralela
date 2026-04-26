@@ -1,7 +1,7 @@
 #include <cstdlib>
 #include <iostream>
-#include "../src/naive.cpp"
-#include "../src/matrix.hpp"
+#include "../../src/naive.cpp"
+#include "../../src/matrix.hpp"
 
 int main(int argn, char** argv) {
     int N = atoi(argv[1]);

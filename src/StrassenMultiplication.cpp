@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+
 
 template <class T>
 inline std::vector<T> conventional_mult(std::vector<T>& A,
