@@ -1,4 +1,3 @@
-#include "strassen_secuencial.cpp"
 #include "strassen_paralelo.cpp"
 #include <iostream>
 #include <vector>
@@ -7,6 +6,7 @@
 
 int main(){
     std::ofstream timefile("strassenvsconvencionaltimes_paralelo.txt");
+    std::ofstream timefile("strassenvsconvencionaltimes.txt");
 
     for (int N=4; N<8192; N*=2)
     {
@@ -20,7 +20,9 @@ int main(){
         }
         auto start = std::chrono::high_resolution_clock::now();
         for(int r=0; r<100; r++){
+
             Cstrassen=strassen_mult_parallel(A,B,N,4);
+
         }
         auto stop = std::chrono::high_resolution_clock::now();
 
@@ -47,6 +49,7 @@ int main(){
         //     }
 
         // }
+
     }
 
 
