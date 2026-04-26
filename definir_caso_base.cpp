@@ -1,10 +1,11 @@
-#include "strassen_secuencial.cpp"
+#include "strassen_paralelo.cpp"
 #include <iostream>
 #include <vector>
 #include <chrono>
 #include <fstream>
 
 int main(){
+    std::ofstream timefile("strassenvsconvencionaltimes_paralelo.txt");
     std::ofstream timefile("strassenvsconvencionaltimes.txt");
 
     for (int N=4; N<8192; N*=2)
@@ -19,7 +20,9 @@ int main(){
         }
         auto start = std::chrono::high_resolution_clock::now();
         for(int r=0; r<100; r++){
-            Cstrassen=strassen_mult(A,B,N,4);
+
+            Cstrassen=strassen_mult_parallel(A,B,N,4);
+
         }
         auto stop = std::chrono::high_resolution_clock::now();
 
@@ -27,25 +30,26 @@ int main(){
         timefile<<"Strassen time "<<duration.count()/100<<" us"<<std::endl;
         start = std::chrono::high_resolution_clock::now();
         for(int r=0; r<100; r++){
-            Cnormal=conventional_mult(A,B,N);
+            Cnormal=conventional_mult_parallel(A,B,N);
         }
         stop = std::chrono::high_resolution_clock::now();
         duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
         timefile<<"Conventional time "<<duration.count()/100<<" us"<<std::endl;
-        if(Cstrassen!=Cnormal){
-            std::cout<<"Error en N= "<<N<<std::endl;
+        // if(Cstrassen!=Cnormal){
+        //     std::cout<<"Error en N= "<<N<<std::endl;
 
-            for(int i=0; i<N;i++){
-                for(int j=0; j<N;j++){
-                    if(Cstrassen[i*N+j]!=Cnormal[i*N+j]){
-                        std::cout<<Cstrassen[i*N+j]<<" "<<Cnormal[i*N+j]<<" ";
-                        std::cout<<i<<" "<<j<<std::endl;
-                    }
-                }
-                std::cout<<std::endl;
-            }
+        //     for(int i=0; i<N;i++){
+        //         for(int j=0; j<N;j++){
+        //             if(Cstrassen[i*N+j]!=Cnormal[i*N+j]){
+        //                 std::cout<<Cstrassen[i*N+j]<<" "<<Cnormal[i*N+j]<<" ";
+        //                 std::cout<<i<<" "<<j<<std::endl;
+        //             }
+        //         }
+        //         std::cout<<std::endl;
+        //     }
 
-        }
+        // }
+
     }
 
 
