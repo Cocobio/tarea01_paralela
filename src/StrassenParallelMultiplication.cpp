@@ -1,5 +1,5 @@
 #include <vector>
-
+#include <omp.h>
 
 template <class T>
 inline void conventional_mult_parallel(const std::vector<T>& A,
