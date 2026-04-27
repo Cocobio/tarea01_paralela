@@ -1,0 +1,80 @@
+Testing: naive_test
+========================================
+N = 256
+Measure time: 8.284
+Measure time: 22.241
+Measure time: 22.134
+N = 512
+Measure time: 111.52
+Measure time: 108.974
+Measure time: 97.696
+N = 1024
+Measure time: 551.664
+Measure time: 553.485
+Measure time: 506.666
+N = 2048
+Measure time: 4380.93
+Measure time: 4383.99
+Measure time: 4400.45
+N = 4096
+Measure time: 50587.7
+Measure time: 50413.5
+Measure time: 50475.8
+========================================
+Testing: strassen_test
+========================================
+N = 256
+base_case = 64 
+Measure time: 27.182
+Measure time: 19.707
+Measure time: 23.581
+N = 512
+base_case = 64 
+Measure time: 92.258
+Measure time: 86.954
+Measure time: 103.084
+N = 1024
+base_case = 64 
+Measure time: 484.195
+Measure time: 498.186
+Measure time: 490.75
+N = 2048
+base_case = 64 
+Measure time: 3267.35
+Measure time: 3223.41
+Measure time: 3224.29
+N = 4096
+base_case = 64 
+Measure time: 21571.6
+Measure time: 21634.2
+Measure time: 21565.2
+========================================
+Testing: tile_test
+========================================
+N = 256
+tile = 64 
+Measure time: 23.415
+Measure time: 24.01
+Measure time: 16.089
+N = 512
+tile = 64 
+Measure time: 111.606
+Measure time: 87.8
+Measure time: 66.826
+N = 1024
+tile = 64 
+Measure time: 525.406
+Measure time: 520.714
+Measure time: 552.306
+N = 2048
+tile = 64 
+Measure time: 4930.2
+Measure time: 4328.36
+Measure time: 4307.76
+N = 4096
+tile = 64 
+Measure time: 34380.6
+Measure time: 34311.6
+Measure time: 34423.2
+========================================
+Ejecucion realizada en 362.93 segundos

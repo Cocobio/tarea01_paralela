@@ -1,0 +1,14 @@
+
+ Performance counter stats for './naive_test 4096':
+
+   216,666,616,276      cycles:u                                                              
+   549,909,686,189      instructions:u                   #    2.54  insn per cycle            
+     4,346,091,511      cache-references:u                                                    
+     3,101,926,233      cache-misses:u                   #   71.37% of all cache refs         
+
+      50.922189523 seconds time elapsed
+
+      50.656600000 seconds user
+       0.081696000 seconds sys
+
+

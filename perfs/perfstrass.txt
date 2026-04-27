@@ -1,0 +1,14 @@
+
+ Performance counter stats for './strassen_test 4096 64':
+
+    75,157,804,306      cycles:u                                                              
+   265,393,454,251      instructions:u                   #    3.53  insn per cycle            
+       300,586,787      cache-references:u                                                    
+        67,752,016      cache-misses:u                   #   22.54% of all cache refs         
+
+      21.779219127 seconds time elapsed
+
+      19.942443000 seconds user
+       1.765548000 seconds sys
+
+

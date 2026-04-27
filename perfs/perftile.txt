@@ -1,0 +1,14 @@
+
+ Performance counter stats for './tile_test 4096 64':
+
+   147,158,736,469      cycles:u                                                              
+   563,993,521,006      instructions:u                   #    3.83  insn per cycle            
+       170,666,742      cache-references:u                                                    
+        72,370,395      cache-misses:u                   #   42.40% of all cache refs         
+
+      34.451834746 seconds time elapsed
+
+      34.277414000 seconds user
+       0.082674000 seconds sys
+
+

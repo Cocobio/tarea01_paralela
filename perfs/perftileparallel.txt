@@ -1,0 +1,14 @@
+
+ Performance counter stats for './tile_parallel_test 4096 64':
+
+   149,149,409,506      cycles:u                                                              
+   569,357,794,514      instructions:u                   #    3.82  insn per cycle            
+       509,286,181      cache-references:u                                                    
+        73,868,793      cache-misses:u                   #   14.50% of all cache refs         
+
+       4.700445873 seconds time elapsed
+
+      36.173514000 seconds user
+       0.105578000 seconds sys
+
+

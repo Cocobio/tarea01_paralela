@@ -1,0 +1,14 @@
+
+ Performance counter stats for './strassen_hybrid_test 4096 64':
+
+    84,417,551,320      cycles:u                                                              
+   296,273,354,842      instructions:u                   #    3.51  insn per cycle            
+       306,483,190      cache-references:u                                                    
+       123,945,098      cache-misses:u                   #   40.44% of all cache refs         
+
+       3.623813961 seconds time elapsed
+
+      20.309101000 seconds user
+       1.626116000 seconds sys
+
+
