@@ -9,16 +9,12 @@ int main(int argn, char** argv) {
     int tile = atoi(argv[2]);
 
     // Tecnicamente, un bloque de memoria sin inicializar es random :p
-    float* A = (float*)malloc(N*N*sizeof(float));
-    float* B = (float*)malloc(N*N*sizeof(float));
-    float* C = (float*)malloc(N*N*sizeof(float));
+    std::vector<float> A(N*N);
+    std::vector<float> B(N*N);
+    std::vector<float> C(N*N);
 
-    double time = medir([&]() {tile_multiplication_parallel(A, B, C, N, tile);});
+    double time = medir([&]() { tile_mult_parallel(A, B, C, N, tile); });
     std::cout << "Measure time: " << time << std::endl;
-
-    free(A);
-    free(B);
-    free(C);
 
     return 0;
 }

@@ -1,17 +1,23 @@
 #include <cstdlib>
 #include <iostream>
-#include "../../src/naive.cpp"
-#include "../../src/matrix.hpp"
+#include "../../src/NaiveMultiplication.cpp"
+#include "../../src/matrix.cpp"
 
 int main(int argn, char** argv) {
     int N = atoi(argv[1]);
     // ignore: argv[2]
 
-    Matrix A = random_matrix(N);
-    Matrix B = random_matrix(N);
+    // Tecnicamente, un bloque de memoria sin inicializar es random :p
+    std::vector<float> A(N*N);
+    std::vector<float> B(N*N);
+    std::vector<float> C(N*N);
 
-    double time = medir([&]{ return mult_clasica(A, B); });
-    std::cout << "Measure time: " << time << std::endl;
+    auto start = std::chrono::high_resolution_clock::now();
+    naive_mult(A, B, C, N);
+    auto end = std::chrono::high_resolution_clock::now();
+    auto time = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+
+    std::cout << "Measure time: " << time/1000.0 << std::endl;
 
     return 0;
 }
