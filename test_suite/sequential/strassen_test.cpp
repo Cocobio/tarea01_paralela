@@ -1,7 +1,7 @@
 #include <cstdlib>
 #include <iostream>
 #include "../../src/StrassenMultiplication.cpp"
-#include "../../src/matrix.cpp"
+#include "../../src/utils.cpp"
 
 int main(int argn, char** argv) {
     int N = atoi(argv[1]);
@@ -12,12 +12,8 @@ int main(int argn, char** argv) {
     std::vector<float> B(N*N);
     std::vector<float> C(N*N);
 
-    auto start = std::chrono::high_resolution_clock::now();
-    strassen_mult(A, B, C, N, base_case);
-    auto end = std::chrono::high_resolution_clock::now();
-    auto time = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
-
-    std::cout << "Measure time: " << time/1000.0 << std::endl;
+    double time = medir([&](){ strassen_mult(A, B, C, N, base_case); });
+    std::cout << "Measure time: " << time << std::endl;
 
     return 0;
 }

@@ -10,6 +10,7 @@ function, which can be customized to run system commands.
 import argparse
 import os
 import subprocess
+from time import time
 
 
 def compile() -> None:
@@ -24,16 +25,17 @@ def compile() -> None:
 
     # Replace with your actual compile command
     def compile_test(test_name: str, suite: str, extra_flags: str = "") -> None:
+        suite = suite + '/' if suite else suite
         process = subprocess.Popen(
             f"g++ -std=c++23 \
-                    test_suite/{suite}/{test_name}.cpp -o bin/{suite}/{test_name} {extra_flags}".split(),
+                    test_suite/{suite}{test_name}.cpp -o bin/{suite}{test_name} {extra_flags}".split(),
             # env=env,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True,
         )
 
-        print(f"Compiling: test_suite/{suite}/{test_name}.cpp")
+        print(f"Compiling: test_suite/{suite}{test_name}.cpp")
         stdout, stderr = process.communicate()
 
         if stdout.strip():
@@ -51,6 +53,9 @@ def compile() -> None:
         compile_test(test.replace(".cpp", ""), "sequential", "-O2")
     for test in os.listdir("test_suite/parallel"):
         compile_test(test.replace(".cpp", ""), "parallel", "-fopenmp -O2")
+    for test in os.listdir("test_suite"):
+        if os.path.isfile("test_suite/"+test):
+            compile_test(test.replace(".cpp", ""), "", "-fopenmp -O2")
 
 
 def test(upper_limit: int = 11) -> None:
@@ -71,7 +76,13 @@ def test(upper_limit: int = 11) -> None:
             print(f"N = {N}")
             for j in range(1, 9):
                 tile_size = 1 << j
-                print(f"tile = {tile_size} ", end='')
+                # Omitir tiles o casos bases mas grandes que la dimension de la matriz
+                if tile_size >= N:
+                    break
+                if 'tile' in test_bin:
+                    print(f"tile = {tile_size} ")
+                elif 'strassen' in test_bin:
+                    print(f"base_case = {tile_size} ")
 
                 for _ in range(10):
                     process = subprocess.Popen(
@@ -89,37 +100,53 @@ def test(upper_limit: int = 11) -> None:
                     if stderr:
                         print("Test stderr:")
                         print(stderr)
+                if 'naive' in test_bin:
+                    break
         print(40*'=')
 
 
-def parallel_test() -> None:
+def parallel_test(upper_limit: int = 11) -> None:
     env: dict[str, str] = os.environ.copy()
-    env["OMP_NUM_THREADS"] = ""
 
-    for test_bin in os.listdir('bin/parallel/'):
-        for i in range(2, 12):
+    stdout, stderr = subprocess.Popen(["./bin/get_num_threads"],
+                                      stdout=subprocess.PIPE,
+                                      stderr=subprocess.PIPE).communicate()
+    THREAD_NUM = int(stdout)
+
+    directory = "bin/parallel"
+    for test_bin in os.listdir(directory):
+        print(f"Testing: {test_bin}")
+        print(40*'=')
+        for i in range(8, upper_limit+1):
             N = 1 << i
             print(f"N = {N}")
-            for j in range(1, 9):
-                tile_size = 1 << j
-                print(f"tile = {tile_size} ", end='')
+            for thread_num in [1]+list(i for i in range(4, THREAD_NUM+1, 4)):
+                print(f"threads = {thread_num} ")
+                env["OMP_NUM_THREADS"] = str(thread_num)
 
-                for _ in range(10):
-                    process = subprocess.Popen(
-                        f"./bin/{test_bin} {N} {tile_size}".split(),
-                        # env=env,
-                        stdout=subprocess.PIPE,
-                        stderr=subprocess.PIPE,
-                        text=True,
-                    )
+                for j in range(1, 9):
+                    base_case = 1 << j
+                    # Evitar casos donde los casos bases son mas grandes que la dimension de la matriz
+                    if base_case >= N:
+                        break
+                    print(f"base_case = {base_case} ")
 
-                    stdout, stderr = process.communicate()
+                    for _ in range(10):
+                        process = subprocess.Popen(
+                            f"./{directory}/{test_bin} {N} {base_case}".split(),
+                            env=env,
+                            stdout=subprocess.PIPE,
+                            stderr=subprocess.PIPE,
+                            text=True,
+                        )
 
-                    print(stdout, end='')
+                        stdout, stderr = process.communicate()
 
-                    if stderr:
-                        print("Test stderr:")
-                        print(stderr)
+                        print(stdout, end='')
+
+                        if stderr:
+                            print("Test stderr:")
+                            print(stderr)
 
 
 def parse_args() -> argparse.Namespace:
@@ -132,17 +159,41 @@ def parse_args() -> argparse.Namespace:
         description="Run compile or test actions.")
     parser.add_argument(
         "action",
-        choices=["compile", "test", "parallel_test"],
+        choices=["compile", "test", "parallel_test", "validate"],
         help="Action to perform: 'compile', 'test' or 'parallel_test'.",
     )
     parser.add_argument("--max_N", type=int, default=11,
-                        help="Maximum size of matrix.")
+                        help="The exponent of the 2**N matrix size.")
 
     return parser.parse_args()
 
 
+def validate(upper_limit: int = 11) -> None:
+    """Run the test process.
+
+    Modify this function to include the actual test command and any
+    required environment variables.
+    """
+
+    directory = "bin"
+    print("Validating algorithms.")
+    print(40*'=')
+
+    N = 1<< upper_limit
+
+    process = subprocess.Popen( f"./{directory}/alg_validation {N}".split())
+
+    stdout, stderr = process.communicate()
+
+    if stderr:
+        print("Test stderr:")
+        print(stderr)
+    print(40*'=')
+
+
 def main() -> None:
     """Main entry point of the script."""
+    begin = time()
     args = parse_args()
     upper_limit = args.max_N
 
@@ -151,10 +202,15 @@ def main() -> None:
     elif args.action == "test":
         test(upper_limit)
     elif args.action == "parallel_test":
-        parallel_test()
+        parallel_test(upper_limit)
+    elif args.action == "validate":
+        validate(upper_limit)
     else:
         # This branch should not be reached due to argparse choices
         raise ValueError(f"Unsupported action: {args.action}")
+
+    end = time()
+    print(f"Ejecucion realizada en {end-begin:.2f} segundos")
 
 
 if __name__ == "__main__":

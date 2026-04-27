@@ -1,6 +1,7 @@
 #include <vector>
 #include <omp.h>
 
+
 template <class T>
 inline void conventional_mult_parallel(const std::vector<T>& A,
                                        const std::vector<T>& B,
@@ -112,11 +113,7 @@ void strassen_mult_parallel(const std::vector<T>& A,
         strassen_mult_parallel(M71, M72, M7, N/2);
     }
 
-    std::vector<T> C11((N*N)/4),
-                   C12((N*N)/4),
-                   C21((N*N)/4),
-                   C22((N*N)/4);
-
+    #pragma omp parallel for collapse(2)
     for(int i=0; i<N/2; i++){
         for(int j=0; j<N/2; j++){
             C[i*N+j]          = M1[i*(N/2)+j]+M4[i*(N/2)+j]-M5[i*(N/2)+j]+M7[i*(N/2)+j];

@@ -4,21 +4,12 @@ Matrix multiplication using naive/tiling/strassen approach. Followed by OpenMP p
 
 # to-do
 ---
-- [ ] Implementar multiplicacion strassen hibrida (OpenMP + Tiling/Blocking)
-- [ ] Hacer makefile con IA
-    - [ ] Compile Run Test
 - [ ] Descripción de las implementaciones
-  - [ ] Multiplicación clásica
-  - [ ] Multiplicación por bloques (cache-friendly)
-  - [ ] Algoritmo de Strassen
-  - [ ] Versión paralela por bloques (OpenMP)
-  - [ ] Strassen paralelo (OpenMP)
-  - [ ] Versión híbrida
 
 * Carito:
     - [ ] Analisis teorico:
-    - [ ] Implementar multiplicacion strassen (secuencial)
-    - [ ] Implementar multiplicacion strassen (OpenMP)
+    - [x] Implementar multiplicacion strassen (secuencial)
+    - [x] Implementar multiplicacion strassen (OpenMP)
 
 
 * Gian:
@@ -36,6 +27,6 @@ Matrix multiplication using naive/tiling/strassen approach. Followed by OpenMP p
 
 * Nacho:
     - [x] Implementar multiplicacion bloque (secuencial)
-    - [ ] Implementar multiplicacion bloque (OpenMP) (w/Gian)
-    - [ ] Realizar experimentos
+    - [x] Implementar multiplicacion bloque (OpenMP) (w/Gian)
+    - [x] Realizar experimentos
 

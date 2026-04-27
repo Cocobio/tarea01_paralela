@@ -1,7 +1,7 @@
 #include <cstdlib>
 #include <iostream>
 #include "../../src/StrassenParallelMultiplication.cpp"
-#include "../../src/matrix.cpp"
+#include "../../src/utils.cpp"
 
 int main(int argn, char** argv) {
     int N = atoi(argv[1]);
@@ -12,7 +12,7 @@ int main(int argn, char** argv) {
     std::vector<float> B(N*N);
     std::vector<float> C(N*N);
     
-    double time = medir([&]() { strassen_mult_parallel(A, B, C, N, n0); });
+    double time = medir([&](){ strassen_mult_parallel(A, B, C, N, n0); });
     std::cout << "Measure time: " << time << std::endl;
 
     return 0;
