@@ -1,6 +1,6 @@
 # tarea01_paralela
 ---
-Matrix multiplication using naive/tiling/strassen approach. Followed by OpenMP parallelized implementation.
+Multiplicacion de matrices usando estrategias naive/tiling/strassen. Seguido de una paralelizacion utilizando OpenMP.
 
 
 ### CLI de Compilación y Benchmarking
