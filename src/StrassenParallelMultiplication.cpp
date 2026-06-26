@@ -12,7 +12,7 @@ inline void conventional_mult_parallel(const std::vector<T>& A,
         for (int j=0; j<N; ++j)
             C[i*N+j] = T();
 
-    #pragma omp parallel for collapse(2)
+    #pragma omp parallel for collapse(1)
     for(int i=0; i<N; i++)
         for(int k=0; k<N; k++)
             for(int j=0; j<N; j++)
